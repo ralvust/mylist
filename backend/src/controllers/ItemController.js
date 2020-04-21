@@ -32,15 +32,12 @@ const ItemController = {
           name: name,
           qty: qty,
         }];
-      }     
-      
+      } 
       connection.set('list', JSON.stringify(itemsList));
 
       return response.json({ message: 'Item adicionado com sucesso.' });
     });
-
   }
-
 };
 
 module.exports = ItemController;

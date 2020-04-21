@@ -4,6 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;  
+  outline: none;
 }
 
 body {
@@ -11,6 +12,23 @@ body {
   background: #333342;
   color: #0cd3d3;
   -webkit-font-smoothing: antialiased;
+}
+
+button {
+  display: flex;
+  align-items: center;
+
+  color: #fff;
+  font-size: 25px;
+  margin-right: 10px;
+  background-color: transparent;
+  border: none;
+}
+
+button svg {
+  color: #f70bb0;
+  font-size: 30px;
+  background-color: transparent;
 }
 
 .list-container {
@@ -27,19 +45,69 @@ body {
 }
 
 .list-container ul li {
+  display: flex;
+  align-items: center;
+
   padding: 5px;
-  margin-left: 30px;
+  margin-left: 15px;
   color: #fff;
   font-size: 25px;
-  transition: linear 0.2s; 
+  transition: linear 0.2s;
 }
 
 .checked {
   text-decoration: line-through;
   color: #979797 !important;
+
+  transition: linear 0.2s;
 }
 
 .not-checked {
   text-decoration: none;
+  transition: linear 0.2s;
 }
 
+.delete-visible button {
+  text-decoration: none;
+  visibility: visible;
+  margin-left: 20px;
+
+  animation: 0.2s fadeIn;
+  transition: linear 0.2s;  
+}
+
+.delete-visible span {
+  color: #979797 !important;
+  text-decoration: none;
+  transition: linear 0.2s;
+}
+
+.delete-not-visible button {
+  visibility: hidden;
+  color: #fff;
+
+  animation: 0.2s fadeOut;
+  transition: linear 0.2s
+}
+
+.delete-not-visible span {
+  color: #fff;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 0%;
+  }
+}
