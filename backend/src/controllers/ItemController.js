@@ -4,14 +4,12 @@ const connection = redis.createClient({
   port: 6379
 });
 
-
 connection.set('list', JSON.stringify({})); 
 
 const ItemController = {
   listItems: (request, response) => {
     connection.get('list', (error, result) => {
       if (!error) {
-        connection.end();
         return response.json(JSON.parse(result));        
       }
     });
@@ -37,7 +35,6 @@ const ItemController = {
       }     
       
       connection.set('list', JSON.stringify(itemsList));
-      connection.end();
 
       return response.json({ message: 'Item adicionado com sucesso.' });
     });
