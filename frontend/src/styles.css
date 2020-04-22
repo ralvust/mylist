@@ -5,6 +5,13 @@
   padding: 0;
   box-sizing: border-box;  
   outline: none;
+
+  /* Keep user from selecting text */
+  user-select: none;
+  -o-user-select:none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
 }
 
 body {
