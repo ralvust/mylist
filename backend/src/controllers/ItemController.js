@@ -37,6 +37,22 @@ const ItemController = {
 
       return response.json({ message: 'Item adicionado com sucesso.' });
     });
+  },
+
+  removeItem: (request, response) => {
+    const { name, type } = request.body;
+    connection.get('list', (error, result) => {
+      if (error)
+        return response.status(500).json({ message: 'Algo de errado não está certo.' });
+
+      const itemsList = JSON.parse(result);
+      if (type in itemsList) {
+        itemsList[type].filter(item => item.name !== name);
+        connection.set('list', JSON.stringify(itemsList));
+        return response.json({ message: 'Item deletado.' });
+      }
+      return response.status(400).json({ message: 'Item nao existe.' });
+    });
   }
 };
 

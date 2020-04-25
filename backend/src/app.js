@@ -12,6 +12,7 @@ app.use(express.json());
 
 router.post('/item', ItemController.addItem);
 router.get('/item', ItemController.listItems);
+router.delete('/item', ItemController.removeItem);
 
 app.use(router);
 
