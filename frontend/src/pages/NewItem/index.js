@@ -7,7 +7,9 @@ import { config } from '../../constants';
 
 import './styles.css';
 
-const NewItem = () => {
+const NewItem = props => {
+  const { listId } = props.match.params;
+
   const [name, setName] = useState('');
   const [type, setType] = useState('');
   const [qty, setQty] = useState('');
@@ -15,7 +17,7 @@ const NewItem = () => {
   const handleSubmit = async e => {
     e.preventDefault();
     try {
-      await axios.post(`${config.url.dev}/item`, {
+      await axios.post(`${config.api}/list/${listId}/item`, {
         name: name,
         type: type,
         qty: qty

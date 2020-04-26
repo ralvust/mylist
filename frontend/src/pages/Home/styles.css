@@ -1,80 +1,15 @@
-.list-container {
+.lists-container {
   margin: 10%
 }
 
-.list-container h1 {
+.lists-container button {
   margin-bottom: 20px;
   margin-top: 20px;
+
+  color: #0cd3d3;
 }
 
-.list-container ul {
-  list-style: none;
-}
-
-.list-container ul li {
-  display: flex;
-  align-items: center;
-
-  padding: 5px;
-  margin-left: 15px;
-  color: #fff;
-  font-size: 25px;
-  transition: linear 0.2s;
-}
-
-.checked {
-  text-decoration: line-through;
-  color: #979797 !important;
-
-  transition: linear 0.2s;
-}
-
-.not-checked {
-  text-decoration: none;
-  transition: linear 0.2s;
-}
-
-.delete-visible button {
-  text-decoration: none;
-  visibility: visible;
+.lists-container li svg {
   margin-left: 20px;
-
-  animation: 0.2s fadeIn;
-  transition: linear 0.2s;  
-}
-
-.delete-visible span {
-  color: #979797 !important;
-  text-decoration: none;
-  transition: linear 0.2s;
-}
-
-.delete-not-visible button {
-  visibility: hidden;
-  color: #fff;
-
-  animation: 0.2s fadeOut;
-  transition: linear 0.2s
-}
-
-.delete-not-visible span {
-  color: #fff;
-}
-
-@keyframes fadeInz {
-  0% {
-    opacity: 0%;
-  }
-  100% {
-    opacity: 100%;
-  }
-}
-
-@keyframes fadeOut {
-  0% {
-    opacity: 100%;
-  }
-  100% {
-    opacity: 0%;
-  }
+  margin-right: 10px;
 }

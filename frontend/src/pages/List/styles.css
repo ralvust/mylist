@@ -1,0 +1,65 @@
+.list-container {
+  margin: 10%
+}
+
+.list-container h1 {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.checked {
+  text-decoration: line-through;
+  color: #979797 !important;
+
+  transition: linear 0.2s;
+}
+
+.not-checked {
+  text-decoration: none;
+  transition: linear 0.2s;
+}
+
+.delete-visible button {
+  text-decoration: none;
+  visibility: visible;
+  margin-left: 20px;
+
+  animation: 0.2s fadeIn;
+  transition: linear 0.2s;  
+}
+
+.delete-visible span {
+  color: #979797 !important;
+  text-decoration: none;
+  transition: linear 0.2s;
+}
+
+.delete-not-visible button {
+  visibility: hidden;
+  color: #fff;
+
+  animation: 0.2s fadeOut;
+  transition: linear 0.2s
+}
+
+.delete-not-visible span {
+  color: #fff;
+}
+
+@keyframes fadeInz {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 0%;
+  }
+}

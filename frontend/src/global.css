@@ -38,6 +38,21 @@ button svg {
   background-color: transparent;
 }
 
+ul {
+  list-style: none;
+}
+
+ul li {
+  display: flex;
+  align-items: center;
+
+  padding: 5px;
+  margin-left: 15px;
+  color: #fff;
+  font-size: 25px;
+  transition: linear 0.2s;
+}
+
 input {
   width: 100%;
 
