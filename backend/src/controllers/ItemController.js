@@ -1,15 +1,16 @@
+const _ = require('lodash');
 const client = require('../database/connection');
 
 const ItemController = {
   list: async (req, res) => {
     const { listId } = req.params;
     try {
-      const lists = await client('lists');
+      const lists = await client.get('lists');
       if ( lists.includes(listId) ) {
         const items = await client.get(listId);
         return res.json(items);
       } else {
-        return res.staus(400).json({ message: 'List does not exists.' });
+        return res.staus(400).json({ message: 'List does not exist.' });
       }
     } catch (err) {
       return res.status(500).json({ message: err.message });
@@ -17,11 +18,11 @@ const ItemController = {
   },
 
   create: async (req, res) => {
-    const { name, type, qty } = request.body;
+    const { name, type, qty } = req.body;
     const { listId } = req.params;
 
     try {
-      const lists = await client('lists');
+      const lists = await client.get('lists');
       if ( lists.includes(listId) ) {
         const items = await client.get(listId);
 
@@ -40,7 +41,7 @@ const ItemController = {
         client.set(listId, items);
         return res.json({ message: 'Item included successfully.' });
       } else {
-        return res.staus(400).json({ message: 'List does not exists.' });
+        return res.staus(400).json({ message: 'List does not exist.' });
       }
     } catch (err) {
       res.status(500).json({ message: err.message });
@@ -48,22 +49,26 @@ const ItemController = {
   },
 
   delete: async (req, res) => {
-    const { name, type, qty } = request.body;
+    const { name, type } = req.body;
     const { listId } = req.params;
 
     try {
-      const lists = await client('lists');
+      const lists = await client.get('lists');
       if ( lists.includes(listId) ) {
         const items = await client.get(listId);
         if ( type in items ) {
           const updatedItems = items[type].filter(item => item.name !== name);
-          client.set(listId, updatedItems);
+          if ( _.isEmpty(updatedItems) ) {
+            client.set(listId, {});
+          } else {
+            client.set(listId, updatedItems);
+          }
           return res.json({ message: "Item deleted successfully" });
         } else {
-          return res.status(400).json({ message: 'Type does not exists on this list.' });
+          return res.status(400).json({ message: 'Type does not exist on this list.' });
         }
       } else {
-        return res.staus(400).json({ message: 'List does not exists.' });
+        return res.staus(400).json({ message: 'List does not exist.' });
       }
     } catch (err) {
       res.status(500).json({ message: err.message });
