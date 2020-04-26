@@ -14,7 +14,7 @@ const ListController = {
   },
 
   create: async (req, res) => {
-    const listId = moment().format('DD-MM-YY');
+    const listId = moment().format('DD-MM-YY-hh-mm');
     try {
       const lists = await client.get('lists');
       if ( ! lists.includes(listId) ) {
