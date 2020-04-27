@@ -29,29 +29,32 @@ const NewItem = props => {
   };
 
   return (
-    <section className="form-container">
-      <form onSubmit={handleSubmit}>
-        <input 
-          type="text"
-          placeholder="type"
-          value={type}
-          onChange={e => setType(e.target.value)}
-        />
-        <input 
-          type="text"
-          placeholder="name"
-          value={name}
-          onChange={e => setName(e.target.value)}
-        />
-        <input 
-          type="text"
-          placeholder="qty"
-          value={qty}
-          onChange={e => setQty(e.target.value)}
-        />
-        <button type="submit"><IoIosCart /> Add to cart!</button>
-      </form>
-    </section>
+    <div className="new-item-container">
+      <h1>New Item</h1>
+      <section className="form-container">
+        <form onSubmit={handleSubmit}>
+          <input 
+            type="text"
+            placeholder="Type"
+            value={type}
+            onChange={e => setType(e.target.value)}
+          />
+          <input 
+            type="text"
+            placeholder="Name"
+            value={name}
+            onChange={e => setName(e.target.value)}
+          />
+          <input 
+            type="text"
+            placeholder="Qty"
+            value={qty}
+            onChange={e => setQty(e.target.value)}
+          />
+          <button type="submit"><IoIosCart /> Add to cart!</button>
+        </form>
+      </section>
+    </div>
   )
 };
 
